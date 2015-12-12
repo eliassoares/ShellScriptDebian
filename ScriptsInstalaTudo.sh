@@ -29,6 +29,14 @@ echo "Atualizando o Debian..."
 echo "...Debian atualizado."
 
 #--------------------------------------------------------------
+	echo "Programas para manipulação de músicas:"
+		apt-get install puddletag
+		apt-get install cowbell
+		apt-get install kid3
+		apt-get -y install rhythmbox*
+		apt-get -y install clementine 
+		
+#--------------------------------------------------------------
 
 	#wget -nv https://download.owncloud.org/download/repositories/8.2/Debian_8.0/Release.key -O Release.key
 	#apt-key add - < Release.key
@@ -67,7 +75,9 @@ echo "...Adobe Flash Plugin instalado."
 #--------------------------------------------------------------
 
 echo "Instalando descompactadores..."
+	apt-get install file-roller
 	apt-get -y install p7zip-full unrar-free
+	kill -s HUP `pidof nautilus`
 echo "...descompactadores instalados."
 
 #--------------------------------------------------------------
@@ -109,7 +119,11 @@ echo "Instalando o VLC..."
 echo "...VLC instalado"
 
 #--------------------------------------------------------------
+echo "Instalando Games..."
+	apt-get install zsnes
+echo "...Games instalados."
 
+#--------------------------------------------------------------
 echo "Instalando o calibre..."
 	apt-get -y install calibre
 echo "...calibre instalado."
@@ -169,9 +183,14 @@ echo "Instalando programas para programação ..."
 	pip install plotly
 	pip install -U nltk
 	pip install -U numpy
+	pip install twill
 	pip install foursquare
 	easy_install html2text
 	easy_install mechanize
+	pip install --upgrade google-api-python-client
+	pip install goslate
+	pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
+	apt-get install git-all
 
 
 
@@ -272,7 +291,9 @@ echo "Instalando Java 8..."
 	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" >> /etc/apt/sources.list
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 	apt-get update
+	apt-get purge openjdk*
 	apt-get -y install oracle-java8-installer
+	apt-get install oracle-java8-set-default
 echo "...Java 8 instalado."
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
